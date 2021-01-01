@@ -17,12 +17,6 @@ export class UserRoleService {
   }
   
 
-    find(uuid: string){
-      return this.httpClient.get<any>
-                              (environment.apiUrl+this.endpoint);
-
-    }
-
 }
 
 
