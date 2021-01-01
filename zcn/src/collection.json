@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "zcn": {
+      "description": "A blank schematic.",
+      "factory": "./zcn/index#zcn",
+      "schema": "./zcn/schema.json"
+    }
+  }
+}

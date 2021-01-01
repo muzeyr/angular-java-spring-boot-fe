@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div class="card-title ">
+                            <div class="row">
+                                <div class="col-4">Kategori Listesi</div>
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                <button class="white-bg" mat-icon-button (click)="yeniKayit()" aria-label="Yeni Tanımla">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Kategori Adı
+                                    </th>
+                                    <th>
+                                       #
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of data">
+                                        <td>
+                                            {{item.categoryName}}
+                                        </td>
+                                        <td>
+                                            <mat-icon aria-hidden="false" style="cursor: pointer;" (click)="duzenle(item)" aria-label="Example home icon">edit</mat-icon>
+                                            <mat-icon aria-hidden="false"  style="cursor: pointer;"   (click)="sil(item)" aria-label="Example home icon">delete</mat-icon>
+                                       </td>
+                                        
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+                                    
+</div>
+  

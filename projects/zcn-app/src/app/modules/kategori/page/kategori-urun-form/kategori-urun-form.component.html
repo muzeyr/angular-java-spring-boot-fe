@@ -1,0 +1,67 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Kategori Ürün Tanımlama</h4>
+                    </div>
+                    <div class="card-body">
+                   
+                          
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="kategoriAdi" placeholder="Kategori Adı" type="text">
+                                  </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                              </div>
+                              <div class="col-md-6">
+                                <button mat-raised-button type="button" (click)="urunEkle()" class="btn btn-danger pull-right">Ürün Ekle</button>
+                                <div class="clearfix"></div>
+                              </div>
+                              
+                          </div>
+                          <div class="row" formArrayName="urunler" *ngFor="let item of formGroup.get('urunler').controls;let i = index;">
+                            <div class="col-md-6" [formGroupName]="i">
+                              <mat-form-field class="example-full-width">
+                                <input matInput formControlName="urunAdi" placeholder="Urun Adi" type="text">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3" [formGroupName]="i">
+                              <mat-form-field class="example-full-width">
+                                <input matInput formControlName="fiyat" placeholder="Fiyat" type="text">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3" [formGroupName]="i">
+                             
+                                <button mat-raised-button   (click)="urunSil(i)" >Sil</button>
+                               
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                          </div>
+                          <div class="col-md-6">
+                            <button mat-raised-button  type="submit" class="btn btn-danger pull-right">Kaydet</button>
+                            <div class="clearfix"></div>
+                          </div>
+                          
+                      </div>
+                              
+                         
+                      
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+  </div>
+  
+</form>

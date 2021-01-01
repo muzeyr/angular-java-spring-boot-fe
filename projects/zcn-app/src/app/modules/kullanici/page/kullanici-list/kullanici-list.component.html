@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Kullanici Listesi</h4>
+                        <p class="card-category"> Sisteme kayıtlı kullanıcıların listesi</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Adı Soyadı
+                                    </th>
+                                    <th>
+                                        Mail
+                                    </th>
+                                    <th>
+                                        Telefon
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let kullanici of kullanicilar">
+                                        <td>
+                                            {{kullanici.adiSoyadi}}
+                                        </td>
+                                        <td>
+                                            {{kullanici.eMail}}
+                                        </td>
+                                        <td>
+                                            {{kullanici.mobilePhone}}
+                                        </td>
+                                        
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+  </div>
+  
