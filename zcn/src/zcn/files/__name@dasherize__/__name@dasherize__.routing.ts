@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; 
-import { KullaniciListComponent } from 'app/modules/kullanici/page/kullanici-list/kullanici-list.component';
-import { KullaniciFormComponent } from './page/kullanici-form/kullanici-form.component';
+import { <%= classify(name) %>ListComponent } from 'app/modules/<%= (name) %>/page/<%= (name) %>-list/<%= (name) %>-list.component';
+import { <%= classify(name) %>FormComponent } from './page/<%= (name) %>-form/<%= (name) %>-form.component';
 
 export const routes: Routes = [
   {
@@ -11,15 +11,15 @@ export const routes: Routes = [
   },
   {
     path: 'list',
-    component: KullaniciListComponent
+    component: <%= classify(name) %>ListComponent
   },
   {
     path: 'form/:id',
-    component: KullaniciFormComponent,
+    component: <%= classify(name) %>FormComponent,
   },
   {
     path: 'form',
-    component: KullaniciFormComponent,
+    component: <%= classify(name) %>FormComponent,
   }
 ];
 
@@ -27,4 +27,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class KullaniciRoutingModule {}
+export class <%= classify(name) %>RoutingModule {}

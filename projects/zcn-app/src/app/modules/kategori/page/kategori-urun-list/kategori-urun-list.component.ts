@@ -16,13 +16,18 @@ export class KategoriUrunListComponent implements OnInit {
   constructor(private readonly kategoriServis: KategoriService,
               private readonly ngxService: NgxUiLoaderService,
               public toastr: ToastrManager,
-              private readonly router: Router) {
+              private readonly router: Router
+              ) {
     ngxService.start();
     this.kategoriServis.list().subscribe(res=>{
       console.log(res);
       this.data = res.data;
       ngxService.stop();
-      toastr.infoToastr('Verileri başarıyla çekildi','İşlem Başarılı')
+      if(res.type ==='S'){
+        toastr.successToastr(res.message)
+      }else{
+        toastr.warningToastr(res.message)
+      }
     },error=>{
       ngxService.stop();
       toastr.errorToastr(error.message);
@@ -45,7 +50,7 @@ export class KategoriUrunListComponent implements OnInit {
 
   }
   yeniKayit(){
-    this.router.navigateByUrl("/kategori/form/");
+    this.router.navigateByUrl("/kategori/form");
 
   }
 

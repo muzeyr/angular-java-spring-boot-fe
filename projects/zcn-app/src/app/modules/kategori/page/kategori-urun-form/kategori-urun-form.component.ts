@@ -49,7 +49,7 @@ export class KategoriUrunFormComponent implements OnInit {
   onSubmit(){
     this.kategoriServis.save(this.formGroup.value).subscribe(res=>{
       this.toastr.successToastr(res.message);
-      this.router.navigateByUrl("/kategori-urun-liste");
+      this.router.navigateByUrl("/kategori/list");
 
     });
     

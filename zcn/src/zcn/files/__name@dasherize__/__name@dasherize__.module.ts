@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core'; 
  
 import { SharedModule } from 'app/shared/shared.module'; 
-import { KullaniciRoutingModule } from './__name@dasherize__.routing';
-import { KullaniciListComponent } from './page/kullanici-list/kullanici-list.component';
-import { KullaniciFormComponent } from './page/kullanici-form/kullanici-form.component';
+import { <%= classify(name) %>RoutingModule } from './__name@dasherize__.routing';
+import { <%= classify(name) %>ListComponent } from './page/<%= (name) %>-list/<%= (name) %>-list.component';
+import { <%= classify(name) %>FormComponent } from './page/<%= (name) %>-form/<%= (name) %>-form.component';
 
 @NgModule({
   declarations: [ 
-    KullaniciFormComponent,
-    KullaniciListComponent,
+    <%= classify(name) %>FormComponent,
+    <%= classify(name) %>ListComponent,
   ],
-  imports: [SharedModule, KullaniciRoutingModule],
+  imports: [SharedModule, <%= classify(name) %>RoutingModule],
   exports: [],
   providers: [],
 })
-export class KullaniciModule {}
+export class <%= classify(name) %>Module {}

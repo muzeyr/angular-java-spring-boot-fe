@@ -1,1 +1,3 @@
-export class `<%= (name) %>`;
+export class <%= (name) %>Dto {
+
+}
