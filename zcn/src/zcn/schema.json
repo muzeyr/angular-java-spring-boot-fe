@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "HelloSchematics",
-  "title": "Hello Options Schema",
+  "id": "Zcnschematics",
+  "title": "Zcn Modul olsuturma",
   "type": "object",
-  "description": "Say hello to someone",
+  "description": "Form ekranlarını hızl bir şekilde dizayn etmek için geliştirilmiştir.",
   "properties": {
     "name": {
       "type": "string",
@@ -12,7 +12,7 @@
         "$source": "argv",
         "index": 0
       },
-      "default":"user-role",
+      "default":"musteri",
       "x-prompt": "Lütfen Modul adını giriniz"
     },
     "findOne": {
@@ -21,8 +21,8 @@
       "x-prompt": "Servis detay fonksiyonu oluşturulsun mu ?"
     },
     "fields": {
-      "type": "array",
-      "default":["aciklama","tip"],
+      "type": "string",
+      "default":"adiSoyadi,aciklama,adres,telefon",
       "x-prompt": "Ekrana eklenmesini istediğiniz alanları giriniz."
     }
   },

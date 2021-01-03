@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router'; 
-import { <%= classify(name) %>ListComponent } from 'app/modules/<%= (name) %>/page/<%= (name) %>-list/<%= (name) %>-list.component';
-import { <%= classify(name) %>FormComponent } from './page/<%= (name) %>-form/<%= (name) %>-form.component';
+import { Routes, RouterModule } from '@angular/router';  
+
+import { <%= classify(name) %>FormComponent } from './pages/<%= (name) %>-form/<%= (name) %>-form.component';
+import { <%= classify(name) %>ListComponent } from './pages/<%= (name) %>-list/<%= (name) %>-list.component';
 
 export const routes: Routes = [
   {

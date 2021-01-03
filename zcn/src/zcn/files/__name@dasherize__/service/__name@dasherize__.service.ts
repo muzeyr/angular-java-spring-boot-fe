@@ -16,6 +16,10 @@ export class <%= classify(name) %>Service {
     return this.httpClient.get<any>(environment.apiUrl+this.endpoint);
   }
   
+  delete(uuid: string){
+    return this.httpClient.delete(environment.apiUrl+this.endpoint+'/'+uuid);
+
+  }
 <% if (findOne){ %>
     find(uuid: string){
       return this.httpClient.get<any>
