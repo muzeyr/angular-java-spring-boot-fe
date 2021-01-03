@@ -12,7 +12,7 @@ export class CategroyForm implements IModelConvert{
   convertModelToFormGroup(model: any): FormGroup {
     const group: any = {};    
 
-    group.id = new FormControl(model.id || '');
+    group.id = new FormControl(model.id || undefined);
     group.kategoriAdi = new FormControl(model.categoryName || '');
     group.urunler =  new FormBuilder().array([])
 
@@ -25,7 +25,7 @@ export class CategroyForm implements IModelConvert{
   convertModelToSiparisFormGroup(model: SiparisDto): FormGroup {
     const group: any = {};    
 
-    group.id = new FormControl(model.id || '');
+    group.id = new FormControl(model.id || undefined);
     group.musteriAdi = new FormControl(model.musteriAdi || '');
     group.urunler =  new FormBuilder().array([])
     group.siparisUrunler =  new FormBuilder().array([])
@@ -51,7 +51,7 @@ export class CategroyForm implements IModelConvert{
   } 
   formUrunEkle(val: any){ 
     return new FormBuilder().group({
-      id: val.id,
+      id: val.id || undefined,
       urunAdi: val.productName,
       fiyat: val.price,
       adet: val.quantity || ''

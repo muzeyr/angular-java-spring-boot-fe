@@ -23,28 +23,25 @@
                                 <thead class=" text-primary">
                                     
                                     <th>
-                                        Adı Soyadı
+                                        Müşteri
                                     </th>
                                     <th>
-                                        Mail
+                                        Adres
                                     </th>
                                     <th>
-                                        Telefon
+                                        Tutar
                                     </th>
                                     <th>
                                         #
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let kullanici of kullanicilar">
+                                    <tr *ngFor="let item of data">
                                         <td>
-                                            {{kullanici.adiSoyadi}}
+                                            {{item.musteri?.name}}
                                         </td>
                                         <td>
-                                            {{kullanici.eMail}}
-                                        </td>
-                                        <td>
-                                            {{kullanici.mobilePhone}}
+                                            {{item.musteri?.address}}
                                         </td>
                                         <td>
                                             <mat-icon aria-hidden="false" style="cursor: pointer;" (click)="duzenle(item)" aria-label="Example home icon">edit</mat-icon>

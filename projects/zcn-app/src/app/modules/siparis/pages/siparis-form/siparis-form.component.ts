@@ -95,10 +95,22 @@ export class  SiparisFormComponent implements OnInit {
     
   }
   onSubmit(){
+    if(!this.seciliMusteri.name){
+      this.toastr.errorToastr("Lütfen müşteri seçiniz");
+      return;
+    }
+    if( this.formGroup.value.siparisUrunler.length === 0){
+      this.toastr.errorToastr("Lütfen sipariş vermek için en az bir ürün seçiniz");
+      return;
+    }
     console.log(this.formGroup.value)
     this.siparisDto = new SiparisSaveDto();
     this.siparisDto.musteri = this.seciliMusteri;
-    this.siparisDto.product = this.formGroup.value.siparisUrunler;
+    this.siparisDto.urunler = this.formGroup.value.siparisUrunler;
+    this.siparisDto.tutar = 0;
+    this.siparisDto.urunler.forEach(pr=>{
+      this.siparisDto.tutar += pr.fiyat;
+    })
     this.siparisService.save(this.siparisDto).subscribe(res=>{
       this.toastr.successToastr(res.message);
       this.router.navigateByUrl("/siparis/list");

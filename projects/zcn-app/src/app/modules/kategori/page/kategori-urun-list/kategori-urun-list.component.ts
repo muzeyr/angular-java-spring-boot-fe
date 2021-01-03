@@ -18,34 +18,36 @@ export class KategoriUrunListComponent implements OnInit {
               public toastr: ToastrManager,
               private readonly router: Router
               ) {
-    ngxService.start();
+    this.onLoad();
+   
+  }
+  onLoad(){
+    this.ngxService.start();
     this.kategoriServis.list().subscribe(res=>{
-      console.log(res);
+      
       this.data = res.data;
-      ngxService.stop();
+      this.ngxService.stop();
       if(res.type ==='S'){
-        toastr.successToastr(res.message)
+        this.toastr.successToastr(res.message)
       }else{
-        toastr.warningToastr(res.message)
+        this.toastr.warningToastr(res.message)
       }
     },error=>{
-      ngxService.stop();
-      toastr.errorToastr(error.message);
+      this.ngxService.stop();
+      this.toastr.errorToastr(error.message);
       
-    })
+    });
   }
 
   ngOnInit(): void {
   }
   duzenle(item: CategortDto){
-    console.log(item);
     this.router.navigateByUrl("/kategori/form/" + item.id);
 
   }
   sil(item: CategortDto){
     this.kategoriServis.delete(item.id).subscribe(data=>{
-      console.log('silindi.')
-
+      this.onLoad();
     });
 
   }

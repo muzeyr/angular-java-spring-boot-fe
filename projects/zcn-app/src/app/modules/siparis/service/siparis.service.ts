@@ -20,12 +20,10 @@ export class SiparisService {
   save(siparis: SiparisSaveDto){
     return this.httpClient.post<any>(environment.apiUrl+this.endpoint,siparis);
   }
-  
+   
   delete(uuid: string){
-    return this.httpClient.delete(environment.apiUrl+this.endpoint+'/'+uuid);
-
+    return this.httpClient.delete<any>(`${environment.apiUrl}/${this.endpoint}?uuid=${uuid}`)
   }
-
   find(uuid: string){
     return this.httpClient.get<any>
                             (environment.apiUrl+this.endpoint);

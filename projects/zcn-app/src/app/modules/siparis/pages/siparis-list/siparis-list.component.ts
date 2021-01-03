@@ -32,8 +32,10 @@ export class  SiparisListComponent implements OnInit {
   }
   sil(item: SiparisDto){
     this.siparisServis.delete(item.id).subscribe(data=>{
-      console.log('silindi.')
-
+      this.toastr.errorToastr("Kayıt silindi");
+      this.siparisServis.list().subscribe(res=>{
+        this.data  = res.data;
+      })
     });
 
   }
