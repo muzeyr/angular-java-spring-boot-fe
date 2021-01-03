@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">
+                            <div class="row">
+                                <div class="col-4">Müşteri Listesi</div>
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                <button class="white-bg" mat-icon-button (click)="yeniKayit()" aria-label="Yeni Tanımla">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                                </div>
+                            </div>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    
+                                    <th>
+                                        Adı Soyadı
+                                    </th>
+                                    <th>
+                                        Adres
+                                    </th>
+                                    <th>
+                                        Telefon
+                                    </th>
+                                    <th>
+                                        #
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of data">
+                                        <td> 
+                                            {{item.name}}
+                                        </td>
+                                        <td>
+                                            {{item.address}}
+                                        </td>
+                                        <td>
+                                            {{item.phone}}
+                                        </td>
+                                        <td>
+                                            <mat-icon aria-hidden="false" style="cursor: pointer;" (click)="duzenle(item)" aria-label="Example home icon">edit</mat-icon>
+                                            <mat-icon aria-hidden="false"  style="cursor: pointer;"   (click)="sil(item)" aria-label="Example home icon">delete</mat-icon>
+                                       </td>
+                                        
+                                        
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+  </div>
+  

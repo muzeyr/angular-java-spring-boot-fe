@@ -1,0 +1,77 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title">Sipariş Ekranı</h4>
+                        </div>
+                        <div class="card-body">
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Müşteri Adı</mat-label>
+                                        <mat-select formControlName="musteriAdi">
+                                          <mat-option *ngFor="let musteri of musteriler" [value]="musteri.name">
+                                     {{musteri.name}} ( {{musteri.address}})
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+
+                                      <mat-tab-group>
+                                        <mat-tab label="{{kategori.categoryName}}" *ngFor="let kategori of kategoriler"> 
+                                            <div *ngFor="let urun of kategori.products">
+                                                        {{urun.productName}}-{{urun.price}}
+                                            </div>
+                                        
+                                            <div class="row" formArrayName="urunler" *ngFor="let item of formGroup.get('urunler').controls;let i = index;">
+                                                <div class="col-md-6" [formGroupName]="i">
+                                                  <mat-form-field class="example-full-width">
+                                                    <input matInput formControlName="urunAdi" placeholder="Urun Adi" type="text">
+                                                  </mat-form-field>
+                                                </div>
+                                                <div class="col-md-3" [formGroupName]="i">
+                                                  <mat-form-field class="example-full-width">
+                                                    <input matInput formControlName="fiyat" placeholder="Fiyat" type="text">
+                                                  </mat-form-field>
+                                                </div>
+                                                <div class="col-md-3" [formGroupName]="i">
+                                                 
+                                                    <button mat-raised-button   (click)="urunSil(i)" >Sil</button>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                        </mat-tab>
+                                         
+                                      </mat-tab-group>
+                                
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                    <button mat-raised-button type="submit"
+                                        class="btn btn-danger pull-right">Kaydet</button>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
