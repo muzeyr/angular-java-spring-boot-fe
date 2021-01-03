@@ -50,7 +50,7 @@
                                         <mat-tab label="{{kategori.categoryName}}" *ngFor="let kategori of kategoriler">
                                             <div class="card-body">
                                                 <div class="row" formArrayName="urunler"
-                                                    *ngFor="let item of formGroup.get('urunler').controls;let i = index;">
+                                                    *ngFor="let item of formGroup.get('urunler').controls let i = index;">
                                                     <div class="col-md-4" [formGroupName]="i">
                                                         <mat-form-field class="example-full-width">
                                                             <input matInput readonly formControlName="urunAdi"
@@ -119,11 +119,7 @@
                                         <input matInput formControlName="adet" placeholder="Adet" type="text">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-3" [formGroupName]="i">
-
-                                    <button mat-raised-button type="button" (click)="ekle(sip)">Sil</button>
-
-                                </div>
+                               
                                 <div class="col-md-2" [formGroupName]="i">
                                     <mat-form-field class="example-full-width">
                                         <input readonly matInput formControlName="fiyat" placeholder="Fiyat"
@@ -131,11 +127,16 @@
                                     </mat-form-field>
                                 </div>
 
-                                <div class="col-md-12" [formGroupName]="i">
+                                <div class="col-md-9" [formGroupName]="i">
                                     <mat-form-field class="example-full-width">
                                         <textarea matInput placeholder="Açıklama" rows="2" formControlName="aciklama"
                                             maxlength="150"> </textarea>
                                     </mat-form-field>
+                                </div>
+                                <div class="col-md-3" [formGroupName]="i">
+
+                                    <button mat-raised-button type="button" (click)="ekle(sip)">Sil</button>
+
                                 </div>
 
                             </div>

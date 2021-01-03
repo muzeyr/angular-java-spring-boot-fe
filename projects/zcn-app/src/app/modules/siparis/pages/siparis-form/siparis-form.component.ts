@@ -7,6 +7,7 @@ import { MusteriDto } from '@modules/musteri/model/musteri';
 import { MusteriFormDto } from '@modules/musteri/model/musteri-form';
 import { MusteriService } from '@modules/musteri/service/musteri.service';
 import { SiparisDto } from '@modules/siparis/model/siparis';
+import { SiparisSaveDto } from '@modules/siparis/model/siparis-save-dto';
 import { SiparisService } from '@modules/siparis/service/siparis.service';
 import { CategroyForm } from 'app/models/categoryForm'; 
 import { ToastrManager } from 'ng6-toastr-notifications';
@@ -29,6 +30,8 @@ export class  SiparisFormComponent implements OnInit {
   public kategoriler: CategortDto[];
   public isLoading: boolean = false;
   public seciliMusteri: MusteriFormDto;
+  public siparisDto: SiparisSaveDto;
+  
   streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
 
 
@@ -43,7 +46,7 @@ export class  SiparisFormComponent implements OnInit {
     private readonly siparisService: SiparisService,
     private readonly kategoriService: KategoriService,
     private readonly musteriService: MusteriService) {
-      this.siparis = new SiparisDto();
+     
       this.seciliMusteri = new MusteriFormDto();
     //  ngxService.start();
       this.musteriService.list().subscribe(res => {
@@ -51,6 +54,7 @@ export class  SiparisFormComponent implements OnInit {
       })
       this.kategoriService.list().subscribe(res => {
         this.kategoriler = res.data;
+        this.siparis = new SiparisDto();
         this.siparis.kategoriler  = res.data;
         this.formGroup = this.modelConvert.convertModelToSiparisFormGroup(this.siparis);
 
@@ -92,7 +96,10 @@ export class  SiparisFormComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.formGroup.value)
-    this.siparisService.save(this.formGroup.value).subscribe(res=>{
+    this.siparisDto = new SiparisSaveDto();
+    this.siparisDto.musteri = this.seciliMusteri;
+    this.siparisDto.product = this.formGroup.value.siparisUrunler;
+    this.siparisService.save(this.siparisDto).subscribe(res=>{
       this.toastr.successToastr(res.message);
       this.router.navigateByUrl("/siparis/list");
 

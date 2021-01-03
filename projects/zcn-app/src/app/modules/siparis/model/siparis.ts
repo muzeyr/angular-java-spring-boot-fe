@@ -6,7 +6,7 @@ export class SiparisDto {
     id: string;
     musteriAdi:string;
     adres:string;
-    kategoriler: CategortDto[];
+    kategoriler: CategortDto[] = [];
     
 
     
