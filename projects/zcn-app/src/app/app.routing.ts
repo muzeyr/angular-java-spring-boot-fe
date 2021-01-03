@@ -34,6 +34,16 @@ const routes: Routes =[
           import('./modules/kullanici/kullanici.module').then(m => m.KullaniciModule)
       },
       {
+        path: 'musteri',
+        loadChildren: () =>
+          import('./modules/musteri/musteri.module').then(m => m.MusteriModule)
+      },
+      {
+        path: 'siparis',
+        loadChildren: () =>
+          import('./modules/siparis/siparis.module').then(m => m.SiparisModule)
+      },
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)

@@ -62,8 +62,7 @@ export class KategoriUrunFormComponent implements OnInit {
   urunSil(indx: number){
     this.urunler  = this.formGroup.get('urunler') as FormArray;
     this.urunler.removeAt(indx);
-    console.log(indx)
-    console.log('silindi')
+     
   }
   
 

@@ -6,7 +6,7 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">
                             <div class="row">
-                                <div class="col-4">Kullanici Listesi</div>
+                                <div class="col-4">Müşteri Listesi</div>
                                 <div class="col-4"></div>
                                 <div class="col-4">
                                 <button class="white-bg" mat-icon-button (click)="yeniKayit()" aria-label="Yeni Tanımla">
@@ -15,22 +15,17 @@
                                 </div>
                             </div>
                         </h4>
-                        <p class="card-category"> Sisteme kayıtlı kullanıcıların listesi</p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
-                                    <% for(let i=0;fields.split(',').lenght>=i;i++){ %>
-                                        <th>
-                                            <%=  fields[i] %>
-                                        </th>
-                                    <% } %>
+                                    
                                     <th>
                                         Adı Soyadı
                                     </th>
                                     <th>
-                                        Mail
+                                        Adres
                                     </th>
                                     <th>
                                         Telefon
@@ -40,15 +35,15 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let kullanici of kullanicilar">
-                                        <td>
-                                            {{kullanici.adiSoyadi}}
+                                    <tr *ngFor="let item of data">
+                                        <td> 
+                                            {{item.name}}
                                         </td>
                                         <td>
-                                            {{kullanici.eMail}}
+                                            {{item.address}}
                                         </td>
                                         <td>
-                                            {{kullanici.mobilePhone}}
+                                            {{item.phone}}
                                         </td>
                                         <td>
                                             <mat-icon aria-hidden="false" style="cursor: pointer;" (click)="duzenle(item)" aria-label="Example home icon">edit</mat-icon>

@@ -1,35 +1,37 @@
-import { classify } from '@angular-devkit/core/src/utils/strings';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { find } from 'rxjs-compat/operator/find';
+import { SiparisDto } from '../model/siparis';
 
 @Injectable({
   providedIn: 'root'
 })
-export class <%= classify(name) %>Service {
-  private endpoint = '<%= dasherize(name)  %>';
+export class SiparisService {
+  private endpoint = 'siparis';
 
   constructor(private readonly httpClient: HttpClient) { }
 
   list(){
     return this.httpClient.get<any>(environment.apiUrl+this.endpoint);
   }
-  
+  save(siparis: SiparisDto){
+    return this.httpClient.post<any>(environment.apiUrl+this.endpoint,siparis);
+  }
   delete(uuid: string){
     return this.httpClient.delete(environment.apiUrl+this.endpoint+'/'+uuid);
 
   }
-<% if (findOne){ %>
-    find(uuid: string){
-      return this.httpClient.get<any>
-                              (environment.apiUrl+this.endpoint);
 
-    }
-<% } %>
+  find(uuid: string){
+    return this.httpClient.get<any>
+                            (environment.apiUrl+this.endpoint);
+
+  }
+
 }
 
 
-export interface <%= classify(name) %>{
+export interface Siparis{
 
 }
