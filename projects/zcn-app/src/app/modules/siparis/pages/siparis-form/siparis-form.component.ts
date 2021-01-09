@@ -87,10 +87,23 @@ export class  SiparisFormComponent implements OnInit {
     });
   } 
   ekle(item: any){
-    console.log(22);
     this.siparisUrunler  = this.formGroup.get('siparisUrunler') as FormArray;
+    console.log(22  )
+    let urunKontrol: boolean = true;
+    this.siparisUrunler.controls.forEach(controlItem => {
+      const itemValueForm = controlItem.value;
 
-    this.siparisUrunler.push(this.modelConvert.siparisEkle(item.value));
+        if(itemValueForm.id === item.value.id){
+          itemValueForm.adet++;
+          itemValueForm.fiyat +=  item.value.fiyat;
+          urunKontrol = false;
+        }
+        controlItem.patchValue(itemValueForm);
+    });
+    if(urunKontrol){
+      this.siparisUrunler.push(this.modelConvert.siparisEkle(item.value));
+
+    }
 
     
   }

@@ -54,7 +54,7 @@ export class CategroyForm implements IModelConvert{
       id: val.id || undefined,
       urunAdi: val.productName,
       fiyat: val.price,
-      adet: val.quantity || ''
+      adet: val.quantity || '1'
     })
   }
   siparisEkle(val: any){ 

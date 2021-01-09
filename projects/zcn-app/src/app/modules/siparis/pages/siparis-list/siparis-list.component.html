@@ -6,7 +6,7 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">
                             <div class="row">
-                                <div class="col-4">Kullanici Listesi</div>
+                                <div class="col-4">Sipariş Listesi</div>
                                 <div class="col-4"></div>
                                 <div class="col-4">
                                 <button class="white-bg" mat-icon-button (click)="yeniKayit()" aria-label="Yeni Tanımla">
@@ -38,10 +38,13 @@
                                 <tbody>
                                     <tr *ngFor="let item of data">
                                         <td>
-                                            {{item.musteri?.name}}
+                                            {{item.customer?.name}}
                                         </td>
                                         <td>
-                                            {{item.musteri?.address}}
+                                            {{item.customer?.address}}
+                                        </td>
+                                        <td>
+                                            {{item.totalPrice}}
                                         </td>
                                         <td>
                                             <mat-icon aria-hidden="false" style="cursor: pointer;" (click)="duzenle(item)" aria-label="Example home icon">edit</mat-icon>
