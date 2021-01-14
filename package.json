@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "install:clean": "cd projects/zcn-app rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o"
+
   },
   "private": true,
   "dependencies": {
