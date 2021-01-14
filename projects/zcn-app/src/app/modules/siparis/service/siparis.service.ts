@@ -29,6 +29,10 @@ export class SiparisService {
                             (environment.apiUrl+this.endpoint);
 
   }
+  weekly(){
+    return this.httpClient.post<any>(environment.apiUrl+this.endpoint+'/weekly',{});
+
+  }
 
 }
 

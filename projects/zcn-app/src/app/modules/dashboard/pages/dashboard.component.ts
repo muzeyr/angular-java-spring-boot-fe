@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiparisService } from '@modules/siparis/service/siparis.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -8,7 +9,7 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly siparisService: SiparisService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,9 +68,11 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-
+      this.siparisService.weekly().subscribe(data=>{
+        console.log(data);
+      })
       const dataDailySalesChart: any = {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['Prts', 'Salı', 'Çarş', 'Perş', 'Cuma', 'Crt', 'Pazar'],
           series: [
               [12, 17, 7, 17, 23, 18, 38]
           ]
