@@ -8,13 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "install:clean": "cd projects/zcn-app rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o"
+    "install:clean": "cd projects/zcn-app rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o",
+    "postinstall": "cd projects/zcn-app ng build --aot -prod"
+
 
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
-    "@angular/common": "~11.0.5",
+    "@angular/common": "  ~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
     "@angular/forms": "~11.0.5",
